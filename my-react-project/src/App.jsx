@@ -1,3 +1,7 @@
+function getTitle(title) {
+  return title;
+}
+
 const list = [
   {
     title: 'React',
@@ -20,27 +24,32 @@ const list = [
 function App() { 
   return (
   <div>
-    <h1>Abompe Brodie Stories!</h1>
+    <h1>Hello {getTitle('React')}</h1>
+       <h1>Abompe Brodie Stories</h1>
 
     <label htmlFor="search">Search: </label>
     <input id="search" type="text" />
 
     <hr />
-
-    <ul>
-      {list.map(function (item) {
-        return <li key={item.objectID}>
-          <span>
-            <a href={item.url}>{item.title}</a>
-            </span>
-          <span> {item.author} </span>
-          <span> {item.comments} </span>
-          <span> {item.points} </span>
-          </li>;
-      })}
-    </ul>
-  </div>
-);
+ 
+       <ul>
+         <ul>
+           {list.map(function (item) {
+             return (
+               <li key={item.objectID}>
+                 <span>
+                   <a href={item.url}>{item.title}</a>
+                 </span>
+                 <span> {item.author} </span>
+                 <span>{item.num_comments}</span>
+                 <span>{item.points}</span>
+               </li>
+             );
+           })}
+         </ul>
+       </ul>
+     </div>
+   );
  }
 
 
